@@ -106,7 +106,7 @@ docReady(() => {
                     .map((id) => {
                         const rootLi = document.createElement("li");
                         rootLi.setAttribute("id", id);
-                        rootLi.textContent = `${members[id].name} (${id}) has fronted ${
+                        rootLi.innerHTML = `${members[id].name} (<code>${id}</code>) has fronted ${
                             members[id].all
                         } times, with ${
                             members[id].cofront

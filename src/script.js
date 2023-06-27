@@ -85,7 +85,7 @@ docReady(() => {
                 .map((id) => {
                 const rootLi = document.createElement("li");
                 rootLi.setAttribute("id", id);
-                rootLi.textContent = `${members[id].name} (${id}) has fronted ${members[id].all} times, with ${members[id].cofront} of those sharing front with someone else (${Math.floor((members[id].cofront / members[id].all) * 10000) / 100}%). Of those times, ${members[id].name} shared front with:`;
+                rootLi.innerHTML = `${members[id].name} (<code>${id}</code>) has fronted ${members[id].all} times, with ${members[id].cofront} of those sharing front with someone else (${Math.floor((members[id].cofront / members[id].all) * 10000) / 100}%). Of those times, ${members[id].name} shared front with:`;
                 const childList = document.createElement("ul");
                 Object.keys(members[id].count)
                     .sort((a, b) => {
