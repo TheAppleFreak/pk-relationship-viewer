@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html color-mode="user">
+    <head>
+        <title>PK Viewer Thing</title>
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+        <script src="./script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>PluralKit Front Relationship Viewer</h1>
+        </header>
+        <main>
+            <form>
+                <label for="token">PluralKit User Token</label>
+                <input type="text" name="token" id="pkToken" minlength="64" maxlength="64" placeholder='You can get this by sending "pk;token" in a server' required>
+                
+                <input type="button" id="submit" value="Fetch system data">
+            </form>
+            
+            <h3>Relationships</h3>
+            <ul id="members">
+                
+            </ul>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "pk-relationship-tracker",
+  "version": "1.0.0",
+  "description": "Little thing to help understand the relationship between members in a system who cofront with others",
+  "main": "build/index.js",
+  "author": "TheAppleFreak",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --strict --target es2021 --watch src/script.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+  }
+}
