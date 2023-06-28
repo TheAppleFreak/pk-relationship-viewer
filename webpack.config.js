@@ -30,9 +30,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: "PluralKit Co-front Relationship Tracker"
-        }),
+        new HtmlWebpackPlugin(),
         new MiniCssExtractPlugin()
     ],
     output: {

@@ -1,7 +1,7 @@
 # PluralKit
 Little thing to help understand the relationship between members in a system who cofront with others.
 
-There's a version of this live at [theapplefreak.github.io](https://theapplefreak.github.io/tools/pk-relationship-viewer) if you want to try it out yourself!
+There's a version of this live at [theapplefreak.github.io](https://theapplefreak.github.io/pk-relationship-viewer) if you want to try it out yourself!
 
 ## Building
 
