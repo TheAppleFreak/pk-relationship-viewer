@@ -170,10 +170,10 @@ docReady(() => {
                         const childList = document.createElement("ul");
                         Object.keys(members[id].count)
                             .sort((a, b) => {
-                                if (members[id].count[a] < members[id].count[b]) {
+                                if (members[id].count[a].count < members[id].count[b].count) {
                                     return 1;
                                 } else if (
-                                    members[id].count[a] === members[id].count[b]
+                                    members[id].count[a].count === members[id].count[b].count
                                 ) {
                                     return 0;
                                 } else {
