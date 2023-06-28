@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html color-mode="user">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="PluralKit Co-front Relationship Viewer">
+        <meta property="og:url" content="https://theapplefreak.github.io/tools/pk-relationship-viewer">
+        <meta property="og:image" content="">
+        <meta property="og:description" content="A little thing to help understand the relationship between members in a system who cofront with others, using PluralKit switch data.">
+    </head>
+    <body>
+        <header>
+            <h1>PluralKit Co-front Relationship Viewer</h1>
+        </header>
+        <main>
+            <form>
+                <label for="token">PluralKit user token</label>
+                <input type="text" name="token" id="pkToken" minlength="64" maxlength="64" placeholder='You can get this by sending "pk;token" in a server' required>
+                <label for="switchCount">How many switches should this analyze? Set to -1 to fetch all logged switches</label>
+                <input type="number" name="switchCount" id="switchCount" min="-1" value="-1">
+
+                <input type="button" id="submit" aria-busy="false" value="Fetch system data">
+            </form>
+            
+            <h3>Relationships</h3>
+            <ul id="members"></ul>
+        </main>
+    </body>
+</html>

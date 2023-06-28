@@ -1,0 +1,18 @@
+:root {
+    --width-card: 100%;
+    --width-card-medium: 100%;
+    --width-card-wide: 100%;
+}
+
+input, select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    width: 100%;
+}
+
+form {
+    box-sizing: border-box;
+}
