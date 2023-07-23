@@ -190,7 +190,7 @@ docReady(() => {
                                             members[id].cofront) *
                                             10000
                                     ) / 100
-                                }% of cofronts, ${
+                                }% of cofronts/co-cons, ${
                                     Math.floor(
                                         (members[id].count[otherId].count /
                                             members[id].all) *
