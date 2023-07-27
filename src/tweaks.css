@@ -4,9 +4,13 @@
     --width-card-wide: 100%;
 }
 
-input[type="text"], select, textarea {
+select, textarea {
     width: 100%;
     box-sizing: border-box;
+}
+
+#pkToken {
+    width: 100%;
 }
 
 form {
