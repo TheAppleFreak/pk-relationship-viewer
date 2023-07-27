@@ -14,9 +14,13 @@ function docReady(fn: () => void): void {
 docReady(() => {
     document.getElementById("submit")!.addEventListener("click", async () => {
         const pkToken = (document.getElementById("pkToken")! as HTMLInputElement).value;
-        const switchCount = Number(
-            (document.getElementById("switchCount")! as HTMLInputElement).value
-        );
+        const switchCount = (
+            document.getElementById("getAllSwitches")! as HTMLInputElement
+        ).checked
+            ? -1
+            : Number(
+                  (document.getElementById("switchCount")! as HTMLInputElement).value
+              );
 
         if (pkToken.length !== 64) {
             alert("Please make sure that you copied your PluralKit token correctly!");
@@ -24,7 +28,7 @@ docReady(() => {
         }
 
         const submitBtn = document.getElementById("submit")!;
-        submitBtn.setAttribute("value", "Fetching...");
+        submitBtn.textContent = "Fetching...";
         submitBtn.setAttribute("aria-busy", "true");
         submitBtn.toggleAttribute("disabled");
 
@@ -153,9 +157,16 @@ docReady(() => {
                         }
                     })
                     .map((id) => {
-                        const rootLi = document.createElement("li");
-                        rootLi.setAttribute("id", id);
-                        rootLi.innerHTML = `${
+                        const rootDetails = document.createElement("details");
+                        rootDetails.setAttribute("id", id);
+                        rootDetails.setAttribute("open", "true");
+
+                        const summary = document.createElement("summary");
+                        summary.innerHTML = `${members[id].name} (<code>${id}</code>)`;
+                        rootDetails.appendChild(summary);
+
+                        const description = document.createElement("p");
+                        description.innerHTML = `${
                             members[id].name
                         } (<code>${id}</code>) has fronted ${
                             members[id].all
@@ -166,14 +177,19 @@ docReady(() => {
                                 (members[id].cofront / members[id].all) * 10000
                             ) / 100
                         }%). Of those times, ${members[id].name} shared front with:`;
+                        rootDetails.appendChild(description);
 
                         const childList = document.createElement("ul");
                         Object.keys(members[id].count)
                             .sort((a, b) => {
-                                if (members[id].count[a].count < members[id].count[b].count) {
+                                if (
+                                    members[id].count[a].count <
+                                    members[id].count[b].count
+                                ) {
                                     return 1;
                                 } else if (
-                                    members[id].count[a].count === members[id].count[b].count
+                                    members[id].count[a].count ===
+                                    members[id].count[b].count
                                 ) {
                                     return 0;
                                 } else {
@@ -208,16 +224,35 @@ docReady(() => {
                                 childList.appendChild(childLi);
                             });
 
-                        rootLi.appendChild(childList);
-                        return rootLi;
+                        rootDetails.appendChild(childList);
+                        return rootDetails;
                     })
             );
         } else {
             alert(`Error ${membersRes.status} - ${membersRes.statusText}`);
         }
 
-        submitBtn.setAttribute("value", "Fetch system data");
+        submitBtn.textContent = "Fetch system data";
         submitBtn.setAttribute("aria-busy", "false");
         submitBtn.toggleAttribute("disabled");
+    });
+
+    document.getElementById("getAllSwitches")!.addEventListener("change", async () => {
+        document.getElementById("switchCountContainer").classList.toggle("hidden");
+    });
+
+    document.getElementById("expand")!.addEventListener("click", async () => {
+        const elements = document.getElementsByTagName("details");
+
+        for (const element of elements) {
+            element.setAttribute("open", "");
+        }
+    });
+    document.getElementById("collapse")!.addEventListener("click", async () => {
+        const elements = document.getElementsByTagName("details");
+
+        for (const element of elements) {
+            element.removeAttribute("open");
+        }
     });
 });

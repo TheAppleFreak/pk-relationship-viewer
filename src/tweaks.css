@@ -4,15 +4,32 @@
     --width-card-wide: 100%;
 }
 
-input, select, textarea {
+input[type="text"], select, textarea {
     width: 100%;
     box-sizing: border-box;
-}
-
-input[type="text"] {
-    width: 100%;
 }
 
 form {
     box-sizing: border-box;
+}
+
+button {
+    padding: 0.5rem 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.results-header {
+    display: inline-block;
+}
+
+.results-header h3 {
+    display: inline-block;
+    padding-right: 2rem;
+}
+
+.results-header div {
+    display: inline-block;
 }
