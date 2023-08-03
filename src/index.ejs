@@ -15,7 +15,7 @@
             <h1>PluralKit Co-front/Co-con Relationship Viewer</h1>
         </header>
         <main>
-            <form>
+            <form id="mainForm">
                 <label for="pkToken">PluralKit user token</label>
                 <input type="text" name="pkToken" id="pkToken" minlength="64" maxlength="64" placeholder='You can get this by sending "pk;token" in a server' required>
                 
@@ -28,7 +28,6 @@
                     <label for="switchCount">How many switches should this analyze?</label>
                     <input type="number" name="switchCount" id="switchCount" min="1" value="100">
                 </div>
-
 
                 <button type="submit" id="submit" aria-busy="false">Fetch system data</button>
             </form>
