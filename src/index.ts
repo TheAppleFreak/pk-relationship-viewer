@@ -12,7 +12,9 @@ function docReady(fn: () => void): void {
 }
 
 docReady(() => {
-    document.getElementById("submit")!.addEventListener("click", async () => {
+    document.getElementById("mainForm")!.addEventListener("submit", async (ev) => {
+        ev.preventDefault();
+
         const pkToken = (document.getElementById("pkToken")! as HTMLInputElement).value;
         const switchCount = (
             document.getElementById("getAllSwitches")! as HTMLInputElement
@@ -24,7 +26,7 @@ docReady(() => {
 
         if (pkToken.length !== 64) {
             alert("Please make sure that you copied your PluralKit token correctly!");
-            return;
+            return false;
         }
 
         const submitBtn = document.getElementById("submit")!;
@@ -235,6 +237,7 @@ docReady(() => {
         submitBtn.textContent = "Fetch system data";
         submitBtn.setAttribute("aria-busy", "false");
         submitBtn.toggleAttribute("disabled");
+        return false;
     });
 
     document.getElementById("getAllSwitches")!.addEventListener("change", async () => {
