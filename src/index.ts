@@ -12,6 +12,10 @@ function docReady(fn: () => void): void {
 }
 
 docReady(() => {
+    // In Firefox, make sure that the checkbox is checked on page load, as this state
+    // persists across reloads
+    (document.getElementById("getAllSwitches")! as HTMLInputElement).checked = true;
+
     document.getElementById("mainForm")!.addEventListener("submit", async (ev) => {
         ev.preventDefault();
 
